@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getByText Component renders 1`] = `
+<div>
+  <button
+    class="css-ubtl1u css-uzwnr3 css-ytrttk"
+    type="button"
+  >
+    Hello Button
+  </button>
+</div>
+`;
