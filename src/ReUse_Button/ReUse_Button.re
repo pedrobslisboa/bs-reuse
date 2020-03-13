@@ -1,8 +1,11 @@
+open Antd.Grid;
+
 type variant = [ | `default | `text | `outline];
 type styles = {
   root: string,
   variant: string,
 };
+
 
 [@react.component]
 let make =
