@@ -1,3 +1,3 @@
 module.exports = {
-  stories: ['../**/__stories__/**/*.bs.js'],
+  stories: ['../**/__stories__/**/*.js'],
 };
