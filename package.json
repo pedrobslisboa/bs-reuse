@@ -24,7 +24,8 @@
       "git add"
     ],
     "*.re": [
-      "prettier src/**/*.re --write --print-width 120"
+      "prettier src/**/*.re --write --print-width 120",
+      "git add"
     ]
   },
   "keywords": [

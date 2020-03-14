@@ -31,7 +31,8 @@ Jest.describe("getByText", (function (param) {
                 var __x = React.createElement(ReUse_Button.make, {
                       onClick: onClick,
                       type_: "button",
-                      children: "Hello Button"
+                      children: "Hello Button",
+                      disabled: true
                     });
                 var btn = ReactTestingLibrary.render(undefined, undefined, __x);
                 Curry._2(ReactTestingLibrary.FireEvent.click, undefined, ReactTestingLibrary.getByText(/* `Str */[
