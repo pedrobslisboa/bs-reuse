@@ -2,7 +2,7 @@
 .merlin
 .bsb.lock
 /lib/
-src/**/*.bs.js
+/src/*.js
 npm-debug.log
 /node_modules/
 coverage
