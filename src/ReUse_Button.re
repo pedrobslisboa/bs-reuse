@@ -35,7 +35,7 @@ module Styles = {
       ]);
 
     let variant: variant => string =
-      variant => {
+      variant =>
         switch (variant) {
         | `default => style([backgroundColor(rgb(213, 213, 213))])
         | `text => style([backgroundColor(transparent), boxShadow(none)])
@@ -48,31 +48,16 @@ module Styles = {
             borderColor(theme.colors.default),
           ])
         };
-      };
 
     {root, variant};
   };
 };
 
 [@react.component]
-let make =
-    (
-      ~onClick=?,
-      ~type_="button",
-      ~children=?,
-      ~disabled=false,
-      ~variant=`default,
-    ) => {
-  let defaultStyles: Styles.return =
-    Styles.styles(
-      React.useContext(ReUse_Theme_Context.context),
-    );
+let make = (~onClick=?, ~type_="button", ~children=?, ~disabled=false, ~variant=`default) => {
+  let defaultStyles: Styles.return = Styles.styles(React.useContext(ReUse_Theme_Context.context));
 
-  <button
-    className={Cn.make([defaultStyles.root, defaultStyles.variant(variant)])}
-    type_
-    disabled
-    ?onClick>
+  <button className={Cn.make([defaultStyles.root, defaultStyles.variant(variant)])} type_ disabled ?onClick>
     {Helpers.optionalChildren(children)}
   </button>;
 };

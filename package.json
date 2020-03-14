@@ -5,6 +5,7 @@
     "build": "bsb -make-world",
     "start": "bsb -make-world -w -ws _ ",
     "clean": "bsb -clean-world",
+    "prettier": "prettier src/**/*.re --write --print-width 120",
     "webpack": "webpack -w",
     "webpack:production": "NODE_ENV=production webpack",
     "server": "webpack-dev-server",
@@ -12,9 +13,18 @@
     "storybook": "yarn build && start-storybook -p 6006",
     "build-storybook": "build-storybook -c .storybook -o .doc"
   },
-  "jest": {
-    "coveragePathIgnorePatterns": [
-      "/Styles/"
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn build && lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "jest --bail --findRelatedTests",
+      "git add"
+    ],
+    "*.re": [
+      "prettier src/**/*.re --write --print-width 120"
     ]
   },
   "keywords": [
@@ -30,6 +40,8 @@
     "bs-storybook": "^0.3.0",
     "lodash": "^4.17.15",
     "mini-css-extract-plugin": "^0.8.0",
+    "prettier": "^1.19.1",
+    "prettier-plugin-reasonml": "^0.1.0",
     "re-classnames": "^4.0.0",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
@@ -47,8 +59,7 @@
     "bs-platform": "^7.1.1",
     "bs-react-testing-library": "^0.6.0",
     "html-webpack-plugin": "^3.2.0",
-    "webpack": "^4.0.1",
-    "webpack-cli": "^3.1.1",
-    "webpack-dev-server": "^3.1.8"
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.8"
   }
 }
