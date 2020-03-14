@@ -22,7 +22,6 @@
     "module": "commonjs",
     "in-source": true
   }],
-  "namespace": true,
   "bs-dependencies": [
     "reason-react",
     "re-classnames",

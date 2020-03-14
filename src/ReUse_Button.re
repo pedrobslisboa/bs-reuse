@@ -1,5 +1,3 @@
-open Antd.Grid;
-
 type variant = [ | `default | `text | `outline];
 type styles = {
   root: string,
