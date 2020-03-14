@@ -1,7 +1,7 @@
 <h1 align="center">ReUse</h1>
 
 <p align="center">
-React Reason components <3
+React Reason components <3 [Storybook](https://bs-reuse.now.sh)
 </p>
 
 ## Installation
