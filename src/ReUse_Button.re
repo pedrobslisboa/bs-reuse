@@ -1,16 +1,13 @@
 type variant = [ | `default | `text | `outline];
-type styles = {
-  root: string,
-  variant: string,
-};
 
 module Styles = {
   open Css;
-  type variant = [ | `default | `text | `outline];
 
-  type return = {
+  type styles = {
     root: string,
-    variant: variant => string,
+    variantDefault: string,
+    variantText: string,
+    variantOutline: string,
   };
 
   type theme = ReUse_Theme.t;
@@ -34,30 +31,35 @@ module Styles = {
         selector("&:disabled", [color(theme.colors.disabled)]),
       ]);
 
-    let variant: variant => string =
-      variant =>
-        switch (variant) {
-        | `default => style([backgroundColor(rgb(213, 213, 213))])
-        | `text => style([backgroundColor(transparent), boxShadow(none)])
-        | `outline =>
-          style([
-            backgroundColor(transparent),
-            boxShadow(none),
-            borderWidth(px(1)),
-            borderStyle(solid),
-            borderColor(theme.colors.default),
-          ])
-        };
+    let variantOutline =
+      style([
+        backgroundColor(transparent),
+        boxShadow(none),
+        borderWidth(px(1)),
+        borderStyle(solid),
+        borderColor(theme.colors.default),
+      ]);
 
-    {root, variant};
+    let variantText = style([backgroundColor(transparent), boxShadow(none)]);
+
+    let variantDefault = style([backgroundColor(rgb(213, 213, 213))]);
+
+    {root, variantDefault, variantOutline, variantText};
   };
 };
 
 [@react.component]
 let make = (~onClick=?, ~type_="button", ~children=?, ~disabled=false, ~variant=`default) => {
-  let defaultStyles: Styles.return = Styles.styles(React.useContext(ReUse_Theme_Context.context));
+  let defaultStyles: Styles.styles = Styles.styles(React.useContext(ReUse_Theme_Context.context));
 
-  <button className={Cn.make([defaultStyles.root, defaultStyles.variant(variant)])} type_ disabled ?onClick>
+  let variantStyle =
+    switch (variant) {
+    | `outline => defaultStyles.variantOutline
+    | `default => defaultStyles.variantDefault
+    | `text => defaultStyles.variantText
+    };
+
+  <button className={Cn.make([defaultStyles.root, variantStyle])} type_ disabled ?onClick>
     {Helpers.optionalChildren(children)}
   </button>;
 };

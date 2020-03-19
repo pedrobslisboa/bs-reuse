@@ -55,7 +55,7 @@ var root = Curry._1(Css.style, /* :: */[
       ]
     ]);
 
-React$1.storiesOf("Elements | ReUse_Button", _module).add("default", (function (param) {
+React$1.storiesOf("Elements | Button", _module).add("default", (function (param) {
               return React.createElement(ReUse_Button.make, {
                           children: "DEFAULT"
                         });
