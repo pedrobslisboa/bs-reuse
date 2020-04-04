@@ -8,6 +8,8 @@ type colors = {
 
 type shape = {mutable borderRadius: Css_AtomicTypes.Length.t};
 
+type fontFamily = Css_AtomicTypes.FontFamilyName.t;
+
 type elevation = array(Shadow.t(Shadow.box));
 
 type shadow = {mutable elevation};
@@ -16,11 +18,12 @@ type t = {
   colors,
   shadow,
   shape,
+  fontFamily,
 };
 
 let shape = {borderRadius: px(4)};
-
 let colors = {default: hex("000000"), disabled: rgb(128, 128, 128)};
+let fontFamily = `custom("'Roboto', sans-serif;");
 
 let shadow = {
   elevation: [|
@@ -29,7 +32,7 @@ let shadow = {
   |],
 };
 
-let theme = {shape, colors, shadow};
+let theme = {shape, colors, shadow, fontFamily};
 
 let changeTheme = cb => {
   let dictTheme = [%bs.raw {| theme |}];
