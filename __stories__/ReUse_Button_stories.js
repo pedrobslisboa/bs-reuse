@@ -6,64 +6,53 @@ var React = require("react");
 var ReUse_Button = require("../src/ReUse_Button.js");
 var React$1 = require("@storybook/react");
 
-var _module = module;
-
-var root = Curry._1(Css.style, /* :: */[
-      Css.display(Css.flexBox),
+var buttonsWrapper = Curry._1(Css.style, /* :: */[
+      Css.display(/* flex */-1010954439),
       /* :: */[
-        Css.fontWeight(/* `num */[
-              5496390,
-              600
-            ]),
+        Css.marginBottom(Css.px(40)),
         /* :: */[
-          Css.alignItems(Css.center),
-          /* :: */[
-            Css.justifyContent(Css.center),
-            /* :: */[
-              Css.borderStyle(Css.none),
-              /* :: */[
-                Css.padding2(Css.px(8), Css.px(16)),
-                /* :: */[
-                  Css.cursor(/* pointer */-786317123),
-                  /* :: */[
-                    Css.borderRadius(Css.px(50)),
-                    /* :: */[
-                      Css.fontFamily(/* `custom */[
-                            1066567601,
-                            "'Montserrat', sans-serif;"
-                          ]),
-                      /* :: */[
-                        Css.letterSpacing(Css.em(0.02)),
-                        /* :: */[
-                          Css.lineHeight(/* `abs */[
-                                4845682,
-                                1.75
-                              ]),
-                          /* :: */[
-                            Css.outlineStyle(Css.none),
-                            /* [] */0
-                          ]
-                        ]
-                      ]
-                    ]
-                  ]
-                ]
-              ]
-            ]
-          ]
+          Css.marginTop(Css.px(10)),
+          /* [] */0
         ]
       ]
     ]);
 
+var button = Curry._1(Css.style, /* :: */[
+      Css.marginRight(Css.px(20)),
+      /* [] */0
+    ]);
+
+var Styles = {
+  buttonsWrapper: buttonsWrapper,
+  button: button
+};
+
+var _module = module;
+
 React$1.storiesOf("Elements | Button", _module).add("default", (function (param) {
-              return React.createElement(ReUse_Button.make, {
-                          children: "DEFAULT"
-                        });
+              return React.createElement("div", {
+                          className: buttonsWrapper
+                        }, React.createElement(ReUse_Button.make, {
+                              className: button,
+                              children: "DEFAULT"
+                            }), React.createElement(ReUse_Button.make, {
+                              className: button,
+                              children: "ELEVATED",
+                              elevated: true
+                            }));
             })).add("disabled", (function (param) {
-            return React.createElement(ReUse_Button.make, {
-                        children: "DISABLE",
-                        disabled: true
-                      });
+            return React.createElement("div", {
+                        className: buttonsWrapper
+                      }, React.createElement(ReUse_Button.make, {
+                            className: button,
+                            children: "DISABLE",
+                            disabled: true
+                          }), React.createElement(ReUse_Button.make, {
+                            className: button,
+                            children: "ELEVATED",
+                            disabled: true,
+                            elevated: true
+                          }));
           })).add("Text button", (function (param) {
           return React.createElement("div", undefined, React.createElement(ReUse_Button.make, {
                           children: "TEXT",
@@ -72,10 +61,10 @@ React$1.storiesOf("Elements | Button", _module).add("default", (function (param)
         })).add("Outlined", (function (param) {
         return React.createElement("div", undefined, React.createElement(ReUse_Button.make, {
                         children: "OUTLINED",
-                        variant: /* outline */-507635838
+                        variant: /* outlined */613841570
                       }));
       }));
 
+exports.Styles = Styles;
 exports._module = _module;
-exports.root = root;
-/* _module Not a pure module */
+/* buttonsWrapper Not a pure module */

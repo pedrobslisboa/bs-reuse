@@ -1,32 +1,34 @@
 open BsStorybook.Story;
 open ReUse;
-open Css;
+
+module Styles = {
+  /* Open the Css module, so we can access the style properties below without prefixing them with Css. */
+  open Css;
+
+  let buttonsWrapper = style([display(`flex), marginBottom(px(40)), marginTop(px(10))]);
+  let button = style([marginRight(px(20))]);
+};
 
 let _module = [%bs.raw "module"];
 
-let root =
-  style([
-    display(flexBox),
-    fontWeight(`num(600)),
-    alignItems(center),
-    justifyContent(center),
-    borderStyle(none),
-    padding2(~v=px(8), ~h=px(16)),
-    cursor(`pointer),
-    borderRadius(px(50)),
-    fontFamily(`custom("'Montserrat', sans-serif;")),
-    letterSpacing(em(0.02)),
-    lineHeight(`abs(1.75)),
-    outlineStyle(none),
-  ]);
-
 storiesOf("Elements | Button", _module)
-->(add("default", () => <Button> {ReasonReact.string("DEFAULT")} </Button>))
+->(
+    add("default", () =>
+      <div className=Styles.buttonsWrapper>
+        <Button className=Styles.button> {ReasonReact.string("DEFAULT")} </Button>
+        <Button className=Styles.button elevated=true> {ReasonReact.string("ELEVATED")} </Button>
+      </div>
+    )
+  )
 ->(
     add("disabled", () => {
       let disabled = true;
-      <Button disabled> {ReasonReact.string("DISABLE")} </Button>;
+      let elevated = true;
+      <div className=Styles.buttonsWrapper>
+        <Button className=Styles.button disabled> {ReasonReact.string("DISABLE")} </Button>
+        <Button className=Styles.button elevated disabled> {ReasonReact.string("ELEVATED")} </Button>
+      </div>;
     })
   )
 ->(add("Text button", () => <div> <Button variant=`text> {ReasonReact.string("TEXT")} </Button> </div>))
-->(add("Outlined", () => <div> <Button variant=`outline> {ReasonReact.string("OUTLINED")} </Button> </div>));
+->(add("Outlined", () => <div> <Button variant=`outlined> {ReasonReact.string("OUTLINED")} </Button> </div>));
