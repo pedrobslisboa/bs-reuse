@@ -3,6 +3,7 @@
 .bsb.lock
 /lib/
 /src/*.js
+/__stories__/*.js
 npm-debug.log
 /node_modules/
 coverage
