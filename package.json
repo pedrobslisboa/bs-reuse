@@ -6,7 +6,8 @@
     "start": "bsb -make-world -w -ws _ ",
     "clean": "bsb -clean-world",
     "prettier": "prettier src/**/*.re --write --print-width 120",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "yarn jest",
+    "test-watch": "jest --watch",
     "storybook": "yarn build && start-storybook -p 6006",
     "build-storybook": "build-storybook -c .storybook -o .doc"
   },
@@ -14,6 +15,9 @@
     "hooks": {
       "pre-commit": "yarn build && lint-staged"
     }
+  },
+  "jest": {
+    "testMatch": ["<rootDir>/__tests__/**/*.js"]
   },
   "lint-staged": {
     "*.js": [
