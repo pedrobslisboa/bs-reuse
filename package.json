@@ -37,7 +37,6 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "bs-ant-design": "^2.1.0",
     "bs-css-emotion": "^1.0.1",
     "bs-storybook": "^0.3.0",
     "lodash": "^4.17.15",
