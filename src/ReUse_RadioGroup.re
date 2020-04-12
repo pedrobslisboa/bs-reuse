@@ -32,7 +32,7 @@ let make = (~children, ~value="", ~onChange=?) => {
           checked := false;
         };
 
-        <ReUse_Ratio value=childValue checked=checked^ label onClick=handleClick className=childClassName />;
+        <ReUse_Radio value=childValue checked=checked^ label onClick=handleClick className=childClassName />;
       },
     );
 
