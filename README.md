@@ -1,7 +1,7 @@
 <h1 align="center">ReUse</h1>
 
 <p align="center">
-React Reason components <3 [Storybook](https://bs-reuse.now.sh)
+React Reason components <3 <a href="https://bs-reuse.now.sh">Storybook</a>
 </p>
 
 ## Installation
@@ -28,9 +28,7 @@ let make = () => {
 
 ## ToDo
 
-[] Modal Component
-[] Card Component
-[] Custom class on components
-[] linter
-[] prettier
-[] lint-staged
+- [ ] Modal Component
+- [ ] Card Component
+- [ ] Custom class on components
+- [ ] linter
