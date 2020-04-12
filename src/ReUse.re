@@ -1,7 +1,7 @@
 module Button = ReUse_Button;
 module TextField = ReUse_TextField;
 module Radio = {
-  module Button = ReUse_Ratio;
+  module Button = ReUse_Radio;
   module Group = ReUse_RadioGroup;
 };
 module Theme = {

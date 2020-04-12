@@ -6,7 +6,7 @@ module Styles = {
   type styles = {
     root: string,
     input: string,
-    ratio: string,
+    radio: string,
     checked: string,
   };
 
@@ -19,7 +19,7 @@ module Styles = {
 
     let checked = style([label("checked")]);
 
-    let ratio =
+    let radio =
       style([
         backgroundColor(rgb(213, 213, 213)),
         display(block),
@@ -64,7 +64,7 @@ module Styles = {
         opacity(0.0),
       ]);
 
-    {root, input, ratio, checked};
+    {root, input, radio, checked};
   };
 };
 
@@ -81,7 +81,7 @@ let make = (~value, ~className="", ~label, ~onClick=?, ~disabled=false, ~checked
   <label className={Cn.make([defaultStyles.root, defaultStyles.checked->Cn.ifTrue(checked), className])}>
     <span>
       <input className={Cn.make([defaultStyles.input])} type_="radio" disabled onClick=handleClick value />
-      <span className={defaultStyles.ratio} />
+      <span className={defaultStyles.radio} />
     </span>
     <span> label->React.string </span>
   </label>;
