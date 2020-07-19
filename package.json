@@ -39,7 +39,7 @@
   "dependencies": {
     "bs-css-emotion": "^1.0.1",
     "bs-storybook": "^0.3.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "mini-css-extract-plugin": "^0.8.0",
     "prettier": "^1.19.1",
     "prettier-plugin-reasonml": "^0.1.0",
